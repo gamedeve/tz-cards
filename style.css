@@ -1,0 +1,130 @@
+:root {
+    --gap: 10px;
+    --card-width: 300px;
+    --columns: 1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: var(--gap);
+}
+
+header h1,
+header a {
+    color: #333;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card-width));
+    gap: var(--gap);
+    padding: var(--gap);
+    justify-content: center;
+}
+.masonry {
+    padding: var(--gap);
+    margin: 0 auto;
+}
+/* clearfix */
+.masonry:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.masonry .card {
+    width: var(--card-width);
+    margin-bottom: var(--gap);
+}
+
+.grid-sizer {
+    width: var(--card-width);
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #444;
+}
+
+.card input,
+.card textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .grid-sizer,
+    .card,
+    .masonry .card {
+        width: 100%;
+    }
+
+    .grid-layout {
+        grid-template-columns: repeat(auto-fill, 100%);
+    }
+}
